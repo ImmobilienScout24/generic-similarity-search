@@ -8,7 +8,7 @@ python:
   - "pypy3"
 install:
   - pip install pip pybuilder coveralls --upgrade
-  - pyb install_dependencies
+  - pyb install_dependencies -X
 script:
   - pyb -X run_unit_tests
 after_success:
