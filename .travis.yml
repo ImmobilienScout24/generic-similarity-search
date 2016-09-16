@@ -1,0 +1,17 @@
+sudo: false
+language: python
+python:
+  - '3.3'
+  - '3.4'
+  - '3.5'
+  - "pypy"
+  - "pypy3"
+before_install:
+  - git fetch --unshallow
+install:
+  - pip install pip pybuilder coveralls --upgrade
+  - pyb install_dependencies
+script:
+  - pyb -X run_unit_tests
+after_success:
+  - coveralls --verbose
