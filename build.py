@@ -1,5 +1,6 @@
-from pybuilder.core import init, use_plugin
 import os
+
+from pybuilder.core import init, use_plugin
 
 use_plugin("python.core")
 use_plugin("python.unittest")
@@ -38,12 +39,12 @@ def initialize(project):
     project.get_property('filter_resources_glob').extend(['**/generic_similarity_search/__init__.py'])
 
     project.set_property('copy_resources_target', '$dir_dist')
-    project.set_property('analyze_command', 'if [ -d .git/hooks/ ]; then ln -fs ../../git-hooks/pre-push .git/hooks/pre-push; fi')
+    project.set_property('analyze_command',
+                         'if [ -d .git/hooks/ ]; then ln -fs ../../git-hooks/pre-push .git/hooks/pre-push; fi')
     project.set_property('coverage_break_build', False)
     project.set_property('install_dependencies_upgrade', True)
     project.set_property('analyze_propagate_stdout', True)
     project.set_property('analyze_propagate_stderr', True)
-    project.set_property('install_dependencies_index_url', "https://ppp.rz.is:5000/dev/dev/+simple/")
 
 
 @init(environments='teamcity')
