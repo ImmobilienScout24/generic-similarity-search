@@ -1,6 +1,8 @@
 # generic similarity search
 Fast multidimensional search for approximate nearest neighbours using FLANN (https://github.com/mariusmuja/flann).
 
+[![Build Status](https://travis-ci.org/ImmobilienScout24/generic-similarity-search.svg?branch=master)](https://travis-ci.org/ImmobilienScout24/generic-similarity-search)
+
 ## API
 To create your own similarity search you need to implement a generator based on the AbstractGenerator in the api package.
 
