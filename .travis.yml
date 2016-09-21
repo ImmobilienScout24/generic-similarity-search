@@ -4,8 +4,6 @@ python:
   - '3.3'
   - '3.4'
   - '3.5'
-  - "pypy"
-  - "pypy3"
 install:
   - pip install pip pybuilder coveralls --upgrade
   - pyb install_dependencies -X
@@ -13,6 +11,8 @@ script:
   - pyb -X run_unit_tests
 after_success:
   - coveralls --verbose
+before_deploy:
+  - pyb -v -X package
 deploy:
   provider: pypi
   user: valuation
