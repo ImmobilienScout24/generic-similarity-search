@@ -12,13 +12,8 @@ use_plugin('copy_resources')
 use_plugin('filter_resources')
 
 
-def get_version():
-    version_from_env = os.environ.get("version")
-    return version_from_env if version_from_env else '0.0.0-SNAPSHOT'
-
-
 default_task = ['clean', 'analyze', 'package']
-version = get_version()
+version = "0.1.0"
 name = "generic_similarity_search"
 
 

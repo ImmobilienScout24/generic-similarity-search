@@ -13,3 +13,13 @@ script:
   - pyb -X run_unit_tests
 after_success:
   - coveralls --verbose
+deploy:
+  provider: pypi
+  user: valuation
+  password:
+    secure: "BLZ9mnWLScjFxtY7LE0Jv1yjM8pEko95Khm7bLF/eYgRyn1emlOEL7x4QJzQN0NRhe9697Oy0VxKhSc4+wMbNCOn5rTwcFLD/qUjXRkMEyYm/I8dirLycYmrbZe3/armqVFrhSSWKad/wfeeEt6HxE3X/rgLojKN0va3Ep014IIflSHnsIvImfUkyqI8Gbk5Behmhty4RUv1h2vo0zVg9S3BVfUYeZhXVI1T3rPh8PgYpaMhhM2cXD5cffh/yERk3UVbJFeNn4a8sqj1feb5BHyTiw6L/1gAVg7m1mVBlq3RZDRMeSDvcoq1FoOIQKtSOGlXW5HkNrYDywq72BOFzBmh48VeIRFUtbehYjbjxDnbxJFMO/OIw/HfsYJlie2RC1eZO2seus+xAlYpuQJ7nDgQlEJC94twEKb/CmWgtZIu2ebQeQKg5MtDtYLDMVNLWEVxxNDUJ53sm26Mkd06b4dCTcqTmpdeXfEz8WgVqh1d/w1j+Ym8/XrkBDik4YePfGXtlTl0PBuIw4lJVmIsNkImIitlrBx8U6+KjGLEyWEnRveqPsCM6/PgQoPB25mFm2GrijXc6OCgwkSWalWyYIiQGmZsceD9QdK9Veyz7Wh41GZvVSdlyoDSHGG5Wt00Z3dSnZSqoOM5zjMuhIXbq7qVBdG8qVUAdAgGEgvDkgo="
+  distributions: 'sdist'
+  skip_cleanup: true
+  on:
+    branch: stable
+    python: '3.5'
