@@ -29,7 +29,7 @@ def initialize(project):
     project.build_depends_on("mock")
 
     project.depends_on('numpy')
-    project.depends_on('pyflann')
+    project.depends_on('pyflann3')
     project.depends_on('boto3')
     project.depends_on('pyproj')
     project.depends_on('tornado')
