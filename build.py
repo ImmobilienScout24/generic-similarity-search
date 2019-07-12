@@ -40,9 +40,9 @@ def initialize(project):
     project.set_property('analyze_propagate_stderr', True)
 
 
-@init(environments='teamcity')
-def set_properties_for_teamcity_builds(project):
-    print("initialize project for teamcity")
+@init(environments='jenkins')
+def set_properties_for_jenkins_builds(project):
+    print("initialize project for jenkins")
     project.default_task = [
         'clean',
         'install_dependencies',
