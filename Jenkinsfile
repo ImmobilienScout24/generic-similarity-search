@@ -18,7 +18,7 @@ pipeline {
 
     stages {
     	stage('Build, Test and Upload to Local PyPI') {
-            agent { node { label 'deploy-python35' } }
+            agent { node { label 'deploy-python36' } }
             when {
                 beforeAgent true
                 branch 'master'
