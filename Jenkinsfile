@@ -26,8 +26,13 @@ pipeline {
             steps {
                 sh 'pip install twine'
                 sh 'pyb -C -E jenkins'
-                sh 'twine upload --repository-url https://fast.cloud.scout24.com/artifactory/api/pypi/pypi-local target/dist/generic-similarity-search-1.0.dev0/dist/*'
+                sh 'twine upload --repository-url https://fast.cloud.scout24.com/artifactory/api/pypi/pypi-local target/dist/generic_similarity_search-1.0.dev0/dist/*'
             }
+            post {
+                always {
+                  junit 'target/reports/*.xml'
+                }
+              }
         }
     }
 }
