@@ -11,7 +11,6 @@ class FlannReindexHandler(tornado.web.RequestHandler):
     def initialize(self, flann_wrapper):
         self.flann_wrapper = flann_wrapper
 
-    @tornado.web.asynchronous
     @gen.coroutine
     def get(self):
         self.flann_wrapper.reindex()
