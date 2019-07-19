@@ -11,14 +11,14 @@ use_plugin('filter_resources')
 
 
 default_task = ['clean', 'analyze', 'package']
-version = "0.1.0"
 name = "generic_similarity_search"
 
 
 @init
 def initialize(project):
-    print("initialize project")
     import os
+    
+    print("initialize project")
 
     fast_user = os.environ.get('FAST_USER', 0)
     fast_token = os.environ.get('FAST_TOKEN', 0)
@@ -50,7 +50,11 @@ def initialize(project):
 
 @init(environments='jenkins')
 def set_properties_for_jenkins_builds(project):
+    import os
+
     print("initialize project for jenkins")
+
+    project.version = os.environ.get('INVOKED_BUILD_NUMBER', 0)
     project.default_task = [
         'clean',
         'install_dependencies',
