@@ -14,6 +14,7 @@ pipeline {
         FAST_USER=getFastUser()
         TWINE_USERNAME=getFastUser()
         TWINE_PASSWORD=getFastToken()
+        TWINE_REPOSITORY_URL="https://fast.cloud.scout24.com/artifactory/api/pypi/pypi-local"
         PYPIPROXY_URL="https://${FAST_USER}:${FAST_TOKEN}@fast.cloud.scout24.com/artifactory/api/pypi/pypi/simple"
     }
 
@@ -27,7 +28,7 @@ pipeline {
             steps {
                 sh 'pip install twine'
                 sh 'pyb -C -E jenkins'
-                sh 'twine upload --repository-url https://fast.cloud.scout24.com/artifactory/api/pypi/pypi-local target/dist/generic_similarity_search-1.0.dev0/dist/*'
+                sh 'twine upload target/dist/generic_similarity_search-1.0.dev0/dist/*'
             }
             post {
                 always {
