@@ -16,14 +16,7 @@ name = "generic_similarity_search"
 
 @init
 def initialize(project):
-    import os
-    
     print("initialize project")
-
-    fast_user = os.environ.get('FAST_USER', 0)
-    fast_token = os.environ.get('FAST_TOKEN', 0)
-
-    index_url = "https://{}:{}@fast.cloud.scout24.com/artifactory/api/pypi/pypi/simple".format(fast_user, fast_token)
 
     project.build_depends_on("unittest2")
     project.build_depends_on("mock")
@@ -45,7 +38,6 @@ def initialize(project):
     project.set_property('install_dependencies_upgrade', True)
     project.set_property('analyze_propagate_stdout', True)
     project.set_property('analyze_propagate_stderr', True)
-    project.set_property('install_dependencies_index_url', index_url)
 
 
 @init(environments='jenkins')
@@ -55,6 +47,7 @@ def set_properties_for_jenkins_builds(project):
     print("initialize project for jenkins")
 
     project.version = os.environ.get('INVOKED_BUILD_NUMBER', 0)
+    project.set_property('install_dependencies_index_url', os.environ.get('PYPIPROXY_URL'))
     project.default_task = [
         'clean',
         'install_dependencies',

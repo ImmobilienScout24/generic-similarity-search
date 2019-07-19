@@ -14,6 +14,7 @@ pipeline {
         FAST_USER=getFastUser()
         TWINE_USERNAME=getFastUser()
         TWINE_PASSWORD=getFastToken()
+        PYPIPROXY_URL="https://${FAST_USER}:${FAST_TOKEN}@fast.cloud.scout24.com/artifactory/api/pypi/pypi/simple"
     }
 
     stages {
@@ -30,9 +31,9 @@ pipeline {
             }
             post {
                 always {
-                  junit 'target/reports/*.xml'
+                    junit 'target/reports/*.xml'
                 }
-              }
+            }
         }
     }
 }
