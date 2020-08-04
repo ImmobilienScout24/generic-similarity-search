@@ -1,0 +1,194 @@
+# The metadata file describes the purpose of a VCS repository.
+
+# Unique identifier of this service. Must be machine-usable.
+# Use project name for git projects
+#
+#   Type:    string
+#   Pattern: ^[a-z0-9]+(?:[-_][a-z0-9]+)*\$
+#
+# id: foo-bar-app
+#
+id: generic-similarity-search
+
+# A short and meaningful name of this service
+#
+#   Type:    string
+#
+# name: Foo Bar App
+#
+name: Generic Similarity Search
+
+# Human readable definition of what this repository provides, how it can be
+# accessed and used. Everything you wish to convey to anyone who discovers this
+# repository.
+#
+#   Type:    string
+#
+# description: The Foo service delivers Bar metrics to DataDog for the Baz team
+#
+description: Fast multidimensional search for approximate nearest neighbours using FLANN
+
+# The type describes the primary intended purpose of this repository. A repository
+# may contain additional content with a different purpose (e.g. a
+# documentation-type repository which contains code to deploy this repository is
+# still a considered a documentation-type repository).
+#
+#   Type:    string
+#   Enum:    application, configuration, data, documentation, ignore, library,
+#            misc
+#
+# type: application
+#
+type: library
+
+# The product to which the content of this repository belong to. Think of 'A
+# product consists of one or several services'. This helps grouping different
+# repositories together under a product label. Must be machine-usable.
+#
+#   Type:    string
+#   Pattern: ^[a-z0-9]+(?:[-_][a-z0-9]+)*\$
+#
+# product: foo
+#
+product: pulsereport
+
+#  The state within it's life cycle the service is currently in.
+#  https://docs.cloud.scout24.com/best-practices/metadata/#lifecycle
+#
+#  Type: string
+#
+#  Enum: preview, ga, maintenance, eol <date>
+#
+lifecycle: ga
+
+# A list of links which help people to find more information, point them to
+# endpoints of the service in this repository - or otherwise are helpful and
+# related to this repository.
+#
+#   Type:    array
+#
+# links:
+#   -
+#     # URL of the link.
+#     #
+#     #   Type:    string
+#     #
+#     address: https://foo-bar.domain.tld
+#
+#     # Display title.
+#     #
+#     #   Type:    string
+#     #
+#     title: Public website
+#
+#     # Type of the link.
+#     #
+#     #   Type:    string
+#     #   Enum:    api-definition, api-documentation, build-chain, dashboard, documentation,
+#     #            disaster-recovery, jira-approval-request, logging, monitoring, public,
+#     #            repository, runbook
+#     #
+#     type: public
+#
+#
+links:
+-
+  address: https://val.fizz.cloud.scout24.com/job/Generic%20similarity%20search
+  title: FiZZ delivery pipeline
+  type: build-chain
+-
+  address: https://github.com/Scout24/generic-similarity-search
+  type: repository
+  title: Git repository
+
+
+# Availability is either critical (=true) or non-critical (=false). Critical
+# means: If the data provided by this service is *lost* (or not available for
+# longer than a day) then a core business process is negatively affected. For
+# example: If single-sign-on authentication is down, then login is partially
+# impossible and multiple business processes are affected. The value is made
+# available by the HoT (or HoP) and specified in the Information Security
+# Objectives Policy:
+# https://gs24.sharepoint.com/risk_compliance_en/Policies/Policy%20Information%20Security%20Objectives.pdf.
+#
+#   Type:    boolean
+#
+# availability: true
+#
+availability: false
+
+# Confidentiality classifies the sensitivity of the data this service contains,
+# works with or works on. This roughly translates to how big the impact is when
+# the data is *breached*. The value is made available by the HoT (or HoP) and
+# specified in the Information Security Objectives Policy:
+# https://gs24.sharepoint.com/risk_compliance_en/Policies/Policy%20Information%20Security%20Objectives.pdf.
+#
+#   Type:    string
+#   Enum:    public, company-internal, company-internal-standard-pii,
+#            company-confidential, company-confidential-sensitive-pii
+#
+# confidentiality: company-internal
+#
+confidentiality: public
+
+# Describes in which direction the service is facing, to determine the security
+# level. The exposure can be either customer facing or a backend service.
+# see https://docs.cloud.scout24.com/best-practices/metadata/#exposure for explanation
+#
+#   Type: array of string
+#
+#   Enum:
+#     consumer-facing-read, consumer-facing-write, customer-facing, back-office
+#     platform, non-applicable
+
+exposure:
+- non-applicable
+
+
+# Integrity is either critical (=true) or non-critical (=false). Critical means:
+# If the data provided by this service is *wrong* (or not correct for longer than
+# a day) then a core business process is negatively affected. For example: If
+# financial data is wrong, then resulting reporting is wrong, which affects
+# multiple core business processes. The value is made available by the HoT (or
+# HoP) and specified in the Information Security Objectives Policy:
+# https://gs24.sharepoint.com/risk_compliance_en/Policies/Policy%20Information%20Security%20Objectives.pdf.
+#
+#   Type:    boolean
+#
+# integrity: true
+#
+integrity: false
+
+# The Scout24 vertical this repository *is used by*. If used by multiple
+# verticals: choose `s24`.
+#
+#   Type:    string
+#   Enum:    as24, cs24, is24, s24
+#
+# vertical: s24
+#
+vertical: is24
+
+# One or multiple mail addresses of *organizations* owning this service. Usually
+# the mail distribution list address of the owning team. If the email contains '#'
+# please put the full email between quotes
+#
+#   Type:    array
+#
+# owners:
+#   - "#S24-YOUR-TEAM-ds@scout24.com"
+#
+owners:
+  - hoa@scout24.com
+
+# List of additional keywords which describe the contents of this repository for
+# search purposes.
+#
+#   Type:    array
+#
+# tags:
+#   - foo-related
+#
+tags:
+  - similarity-search
+  - FLANN
